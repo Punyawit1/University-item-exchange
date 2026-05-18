@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แลกของ - หน้าหลัก</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #f2f2f2; }
+    header, footer { background-color: #0066cc; color: white; padding: 1em; text-align: center; }
+    nav a { margin: 0 10px; color: white; text-decoration: none; }
+    .container { padding: 20px; max-width: 1000px; margin: auto; }
+    .hero { background: white; padding: 2em; text-align: center; border-radius: 10px; }
+    .search-box { margin-top: 20px; text-align: center; }
+    input[type=\"text\"] { padding: 10px; width: 60%; }
+    button { padding: 10px 20px; margin-left: 10px; }
+    .items-preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1em; margin-top: 20px; }
+    .item-card { background: white; padding: 1em; border-radius: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>เว็บไซต์แลกของ</h1>
+    <nav>
+      <a href="login.html">เข้าสู่ระบบ</a>
+      <a href="register.html">สมัครสมาชิก</a>
+      <a href="browse.html">ค้นหาสินค้า</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h2>ยินดีต้อนรับ!</h2>
+      <p>สมัครสมาชิกเพื่อเริ่มต้นการแลกเปลี่ยนสิ่งของกับผู้อื่นได้ทันที</p>
+      <a href="register.html"><button>สมัครสมาชิก</button></a>
+    </section>
+
+    <section class="search-box">
+      <h3>ค้นหาสิ่งของ</h3>
+      <form action="browse.html" method="get">
+        <input type="text" name="q" placeholder="ค้นหาชื่อสินค้า หมวดหมู่ ฯลฯ">
+        <button type="submit">ค้นหา</button>
+      </form>
+    </section>
+
+    <section class="items-preview">
+      <div class="item-card">
+        <img src="images/example1.jpg" alt="item" style="width:100%; border-radius: 8px;">
+        <h4>รองเท้าผ้าใบมือสอง</h4>
+        <p>หมวดหมู่: แฟชั่น</p>
+      </div>
+      <div class="item-card">
+        <img src="images/example2.jpg" alt="item" style="width:100%; border-radius: 8px;">
+        <h4>หนังสือมือสอง</h4>
+        <p>หมวดหมู่: การศึกษา</p>
+      </div>
+      <!-- เพิ่มตัวอย่างสินค้าอื่น ๆ ได้ -->
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 เว็บไซต์แลกของ | <a href="about.html" style="color:white;">เกี่ยวกับเรา</a></p>
+  </footer>
+
+</body>
+</html>

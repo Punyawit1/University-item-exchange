@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>สมัครสมาชิก | แลกของ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        :root {
+            --shopee-primary: #FFC107; /* Shopee's iconic orange */
+            --shopee-dark: #FFC107;   /* Slightly darker for hover */
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #e0e0e0;
+            --input-focus-border: #FFC107; /* A brighter orange for input focus */
+            --bg-light: #f5f5f5;
+            --white: #fff;
+            --shadow-light: rgba(0,0,0,0.08);
+            --shadow-medium: rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Make sure it takes full viewport height */
+            padding: 20px; /* Add some padding for smaller screens */
+        }
+
+        .container {
+            max-width: 450px; /* Slightly wider for better form layout */
+            width: 100%;
+            background: var(--white);
+            padding: 40px 30px; /* More padding */
+            border-radius: 8px; /* Softer corners */
+            box-shadow: 0 4px 20px var(--shadow-medium); /* More prominent shadow */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px; /* Space for the underline */
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px; /* Short underline */
+            height: 4px;
+            background-color: var(--shopee-primary);
+            border-radius: 2px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 18px; /* More space between fields */
+            font-weight: 400;
+            color: var(--light-text-color);
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px; /* More padding inside input */
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--shopee-primary); /* Shopee orange border on focus */
+            box-shadow: 0 0 0 3px rgba(238, 77, 45, 0.2); /* Subtle glow */
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px; /* Larger button */
+            background: var(--shopee-primary);
+            color: var(--white);
+            border: none;
+            margin-top: 30px; /* More space above button */
+            border-radius: 5px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--shopee-dark); /* Darker orange on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .login-link, .back-home {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .login-link p {
+            color: var(--light-text-color);
+        }
+
+        .login-link a, .back-home a {
+            color: var(--shopee-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover, .back-home a:hover {
+            color: var(--shopee-dark);
+            text-decoration: underline;
+        }
+
+        /* Style for the "Back Home" button/link */
+        .back-home .secondary-button { /* Use a class for specific styling */
+            display: inline-flex; /* To align icon and text */
+            align-items: center;
+            padding: 10px 20px;
+            background: #9e9e9e; /* A neutral gray */
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline for anchor */
+            margin-top: 20px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-home .secondary-button i {
+            margin-right: 8px;
+        }
+
+        .back-home .secondary-button:hover {
+            background: #757575; /* Darker gray on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px auto; /* Adjust margin for smaller screens */
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            button[type="submit"] {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            .secondary-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            display: none;
+            font-weight: 400;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .input-error {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>สมัครสมาชิก</h2>
+        <form action="register_process.php" method="post">
+            <label for="username">ชื่อผู้ใช้งาน</label>
+            <input type="text" name="username" id="username" placeholder="ตั้งชื่อผู้ใช้งานของคุณ" required>
+            <div class="error-message" id="username-error">ชื่อผู้ใช้ไม่ถูกต้อง กรุณาใช้ตัวอักษรภาษาอังกฤษหรือภาษาไทยเท่านั้น</div>
+
+            <label for="email">อีเมล</label>
+            <input type="email" name="email" id="email" placeholder="ตัวอย่าง: user@example.com" required>
+
+            <label for="password">รหัสผ่าน</label>
+            <input type="password" name="password" id="password" placeholder="ตั้งรหัสผ่าน" required>
+
+            <label for="confirm_password">ยืนยันรหัสผ่าน</label>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="ยืนยันรหัสผ่านอีกครั้ง" required>
+
+            <button type="submit">สมัครสมาชิก</button>
+        </form>
+
+        <div class="login-link">
+            <p>มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบที่นี่</a></p>
+        </div>
+
+        <div class="back-home">
+            <a href="index.php" class="secondary-button">
+                <i class="fas fa-arrow-left"></i> กลับหน้าแรก
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Username validation function
+        function validateUsername() {
+            const usernameInput = document.getElementById('username');
+            const errorMessage = document.getElementById('username-error');
+            const username = usernameInput.value.trim();
+            
+            // Check if username contains only numbers
+            const isOnlyNumbers = /^\d+$/.test(username);
+            
+            if (isOnlyNumbers && username.length > 0) {
+                // Show error message and add error styling
+                errorMessage.classList.add('show');
+                usernameInput.classList.add('input-error');
+                return false;
+            } else {
+                // Hide error message and remove error styling
+                errorMessage.classList.remove('show');
+                usernameInput.classList.remove('input-error');
+                return true;
+            }
+        }
+        
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameInput = document.getElementById('username');
+            const form = document.querySelector('form');
+            
+            // Validate on input (real-time validation)
+            usernameInput.addEventListener('input', validateUsername);
+            
+            // Validate on blur (when user leaves the field)
+            usernameInput.addEventListener('blur', validateUsername);
+            
+            // Validate on form submission
+            form.addEventListener('submit', function(e) {
+                if (!validateUsername()) {
+                    e.preventDefault(); // Prevent form submission
+                    usernameInput.focus(); // Focus on the invalid field
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
